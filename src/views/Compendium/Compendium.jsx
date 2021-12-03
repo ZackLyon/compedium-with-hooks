@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react';
-import Choices from '../components/Choices/Choices';
-import List from '../components/List/List';
+import Choices from '../../components/Choices/Choices';
+import List from '../../components/List/List';
 import {
   fetchPokemon,
   fetchSelected,
   fetchTypes,
-} from '../services/fetch-utils.js';
+} from '../../services/fetch-utils.js';
+import './Compendium.css';
 
 export default function Compendium() {
   const [pokedex, setPokedex] = useState([]);
@@ -37,7 +38,6 @@ export default function Compendium() {
   useEffect(() => {
     async function changeType() {
       if (selectedType === 'any') {
-        console.log(sort);
         const anyList = await fetchPokemon(sort);
         setPokedex(anyList);
       } else {
@@ -50,7 +50,7 @@ export default function Compendium() {
   }, [selectedType, sort]);
 
   return (
-    <div>
+    <div className='comp-layout'>
       <Choices
         types={availableTypes}
         setType={setSelectedType}
@@ -58,7 +58,11 @@ export default function Compendium() {
         sort={sort}
         setSort={setSort}
       />
-      {isLoading ? <div>loading</div> : <List pokedex={pokedex} />}
+      {isLoading ? (
+        <div className='loading'>LOADING</div>
+      ) : (
+        <List pokedex={pokedex} />
+      )}
     </div>
   );
 }
