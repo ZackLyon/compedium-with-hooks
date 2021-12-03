@@ -19,6 +19,7 @@ export default function Compendium() {
     async function retrievePokemon() {
       const pokemonList = await fetchPokemon('asc');
       setPokedex(pokemonList);
+      console.log(pokemonList);
 
       setIsLoading(false);
     }

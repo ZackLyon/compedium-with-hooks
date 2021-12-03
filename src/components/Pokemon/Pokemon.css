@@ -14,10 +14,15 @@ img {
   height: 30vh;
   width: 20vw;
   object-fit: contain;
+  margin-bottom: -5vh;
+  z-index: -1;
 }
 
 .name {
   text-transform: uppercase;
+  text-shadow: 0 0 3px black, 0 0 3px black;
+  width: auto;
+  color: white;
 }
 
 .stats {
