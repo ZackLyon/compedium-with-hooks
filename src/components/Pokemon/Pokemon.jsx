@@ -1,8 +1,8 @@
 import React from 'react';
 
 export default function Pokemon({ poke }) {
-  console.log(poke);
   const { url_image, pokemon, attack, defense, hp, type_1 } = poke;
+
   return (
     <div>
       <img src={`${url_image}`} alt={pokemon} />
@@ -14,10 +14,3 @@ export default function Pokemon({ poke }) {
     </div>
   );
 }
-
-// pokemon,
-//   type_1,
-//   attack,
-//   defense,
-//   hp,
-//   url_image,
