@@ -1,8 +1,8 @@
 import { typeGroomer } from '../utils/munger-utils.js';
 
-export const fetchPokemon = async () => {
+export const fetchPokemon = async (sort) => {
   const pokemonList = await fetch(
-    'https://pokedex-alchemy.herokuapp.com/api/pokedex'
+    `https://pokedex-alchemy.herokuapp.com/api/pokedex?sort=pokemon&direction=${sort}`
   );
 
   const parsedList = await pokemonList.json();
@@ -19,9 +19,9 @@ export const fetchTypes = async () => {
   return typesArr;
 };
 
-export const fetchSelected = async (type) => {
+export const fetchSelected = async (type, sort) => {
   const selectedList = await fetch(
-    `https://pokedex-alchemy.herokuapp.com/api/pokedex?type=${type}`
+    `https://pokedex-alchemy.herokuapp.com/api/pokedex?type=${type}&sort=pokemon&direction=${sort}`
   );
 
   const parsedSelectedList = await selectedList.json();

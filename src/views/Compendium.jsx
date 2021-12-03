@@ -9,16 +9,16 @@ import {
 
 export default function Compendium() {
   const [pokedex, setPokedex] = useState([]);
-  const [unorderedList, setUnorderedList] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [availableTypes, setAvailableTypes] = useState([]);
   const [selectedType, setSelectedType] = useState('any');
+  const [sort, setSort] = useState('asc');
 
   useEffect(() => {
     async function retrievePokemon() {
-      const pokemonList = await fetchPokemon();
+      const pokemonList = await fetchPokemon('asc');
       setPokedex(pokemonList);
-      setUnorderedList(pokemonList);
+
       setIsLoading(false);
     }
 
@@ -37,15 +37,17 @@ export default function Compendium() {
   useEffect(() => {
     async function changeType() {
       if (selectedType === 'any') {
-        setPokedex(unorderedList);
+        console.log(sort);
+        const anyList = await fetchPokemon(sort);
+        setPokedex(anyList);
       } else {
-        const selectedList = await fetchSelected(selectedType);
+        const selectedList = await fetchSelected(selectedType, sort);
         setPokedex(selectedList);
       }
     }
 
     changeType();
-  }, [selectedType, unorderedList]);
+  }, [selectedType, sort]);
 
   return (
     <div>
@@ -53,6 +55,8 @@ export default function Compendium() {
         types={availableTypes}
         setType={setSelectedType}
         selectedType={selectedType}
+        sort={sort}
+        setSort={setSort}
       />
       {isLoading ? <div>loading</div> : <List pokedex={pokedex} />}
     </div>
