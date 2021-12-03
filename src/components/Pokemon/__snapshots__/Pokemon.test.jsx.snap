@@ -1,0 +1,39 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should match the screenshot of the single pokemon 1`] = `
+<div>
+  <div
+    class="pokemon-card"
+  >
+    <img
+      alt="abomasnow"
+      src="http://assets.pokemon.com/assets/cms2/img/pokedex/full/460.png"
+    />
+    <h1
+      class="name"
+    >
+      abomasnow
+    </h1>
+    <section
+      class="stats"
+    >
+      <div>
+        grass
+        /ice
+      </div>
+      <div>
+        Attack: 
+        92
+      </div>
+      <div>
+        Defense: 
+        75
+      </div>
+      <div>
+        HP: 
+        90
+      </div>
+    </section>
+  </div>
+</div>
+`;

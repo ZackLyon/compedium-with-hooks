@@ -1,0 +1,31 @@
+.pokemon-card {
+  background-color: rgba(142, 167, 146, 0.801);
+  border: 3px rgb(45, 83, 50) solid;
+  padding-bottom: 1vmax;
+  border-radius: 3vmax;
+  margin: 3vmax;
+}
+
+.pokemon-card > * {
+  color: rgb(45, 83, 50);
+}
+
+img {
+  height: 30vh;
+  width: 20vw;
+  object-fit: contain;
+  margin-bottom: -5vh;
+  z-index: -1;
+}
+
+.name {
+  text-transform: uppercase;
+  text-shadow: 0 0 3px black, 0 0 3px black;
+  width: auto;
+  color: white;
+}
+
+.stats {
+  font-weight: bold;
+  text-transform: capitalize;
+}

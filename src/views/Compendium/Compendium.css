@@ -1,0 +1,11 @@
+.comp-layout {
+  display: flex;
+}
+
+.loading {
+  font-size: 10vh;
+  margin-top: 20vh;
+  justify-content: center;
+  width: 100%;
+  height: 100vh;
+}
